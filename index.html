@@ -39,8 +39,40 @@
             gap: 60px;
         }
 
+        /* --- Horizontal Navigation Bar --- */
+        nav {
+            order: 1;             /* Keeps the menu at the very top */
+            margin-bottom: 35px;  /* Leaves space below the navigation bar */
+            width: 100%;          /* Ensures it spans the full width */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;        /* Aligns the list items horizontally */
+            flex-wrap: wrap;      /* Allows links to wrap to a new line on small mobile screens */
+            gap: 25px;            /* Sets the spacing between each link (About, Research, etc.) */
+        }
+
+        nav li {
+            margin-bottom: 0;     /* Removes the vertical list spacing */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;     /* Makes the font slightly bolder for a top header look */
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase; /* Optional: Makes links uppercase for a clean header style */
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--link-color);
+        }
+
+        
         /* --- Left Sidebar Layout --- */
-      /* --- Left Sidebar Layout (Flexbox-enabled for reordering) --- */
         aside {
             position: sticky;
             top: 40px;
@@ -49,18 +81,12 @@
             flex-direction: column;
         }
 
-        /* --- Change Element Order in the Sidebar --- */
-        nav {
-            order: 1;             /* Moves Navigation to the very top (Left) */
-            margin-bottom: 25px;
-        }
-
         .profile-img {
-            order: 2;             /* Moves the Image below the Navigation */
-            width: 100%;          /* Scale the image to fill the sidebar width nicely */
-            max-width: 220px;     /* Set a maximum width so it doesn't get too large */
-            height: auto;         /* Maintain original aspect ratio (prevents distortion) */
-            border-radius: 6px;   /* 6px yields a clean, modern rectangular look with slightly softened edges */
+            order: 2;             /* Sits directly underneath the horizontal navigation */
+            width: 100%;          
+            max-width: 220px;     
+            height: auto;         
+            border-radius: 6px;   
             object-fit: cover;
             background-color: var(--bg-light);
             border: 1px solid var(--border-color);
@@ -68,7 +94,7 @@
         }
 
         h1 {
-            order: 3;             /* Moves your Name below the Image */
+            order: 3;             /* Sits underneath the photo */
             font-size: 24px;
             font-weight: 700;
             color: var(--primary-color);
@@ -77,7 +103,7 @@
         }
 
         .subtitle {
-            order: 4;             /* Moves your Subtitle below your Name */
+            order: 4;             /* Sits underneath your name */
             font-size: 14px;
             color: var(--text-light);
             margin-bottom: 25px;
@@ -85,10 +111,11 @@
         }
 
         .social-links {
-            order: 5;             /* Keeps your Contact/Social links at the bottom */
+            order: 5;             /* Keeps social links at the bottom of the sidebar profile */
             list-style: none;
             font-size: 14px;
         }
+
 
 
         /* --- Right Main Content Area --- */
@@ -217,6 +244,7 @@
                     <li><a href="#education">Education</a></li>
                 </ul>
             </nav>
+            
             
             <!-- Contact & Social Icons -->
             <ul class="social-links">
