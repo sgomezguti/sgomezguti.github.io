@@ -40,16 +40,27 @@
         }
 
         /* --- Left Sidebar Layout --- */
+      /* --- Left Sidebar Layout (Flexbox-enabled for reordering) --- */
         aside {
             position: sticky;
             top: 40px;
             height: fit-content;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Change Element Order in the Sidebar --- */
+        nav {
+            order: 1;             /* Moves Navigation to the very top (Left) */
+            margin-bottom: 25px;
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
+            order: 2;             /* Moves the Image below the Navigation */
+            width: 100%;          /* Scale the image to fill the sidebar width nicely */
+            max-width: 220px;     /* Set a maximum width so it doesn't get too large */
+            height: auto;         /* Maintain original aspect ratio (prevents distortion) */
+            border-radius: 6px;   /* 6px yields a clean, modern rectangular look with slightly softened edges */
             object-fit: cover;
             background-color: var(--bg-light);
             border: 1px solid var(--border-color);
@@ -57,6 +68,7 @@
         }
 
         h1 {
+            order: 3;             /* Moves your Name below the Image */
             font-size: 24px;
             font-weight: 700;
             color: var(--primary-color);
@@ -65,58 +77,19 @@
         }
 
         .subtitle {
+            order: 4;             /* Moves your Subtitle below your Name */
             font-size: 14px;
             color: var(--text-light);
             margin-bottom: 25px;
             font-style: italic;
         }
 
-        /* --- Navigation Links --- */
-        nav {
-            margin-bottom: 30px;
-        }
-
-        nav ul {
-            list-style: none;
-        }
-
-        nav li {
-            margin-bottom: 8px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--link-color);
-        }
-
-        /* --- Social & Contact Icons/Links --- */
         .social-links {
+            order: 5;             /* Keeps your Contact/Social links at the bottom */
             list-style: none;
             font-size: 14px;
         }
 
-        .social-links li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .social-links a {
-            text-decoration: none;
-            color: var(--link-color);
-        }
-
-        .social-links a:hover {
-            text-decoration: underline;
-        }
 
         /* --- Right Main Content Area --- */
         main {
@@ -329,7 +302,7 @@
                     </div>
                     <div class="item-sub">Purdue University, Department of Botany and Plant Pathology</div>
                     <p class="item-desc">
-                        Engineered reproducible RNA-Seq and comparative genomic analysis pipelines, developed machine-learning scoring prioritizations, and applied AlphaFold structural modeling to identify thirty-two key regulatory effectors [source: 1, 25].
+                        Engineered reproducible RNA-Seq and comparative genomic analysis pipelines, developed machine-learning scoring prioritizations, and applied AlphaFold structural modeling to identify thirty-two key regulatory effectors.
                     </p>
                 </div>
 
@@ -340,7 +313,7 @@
                     </div>
                     <div class="item-sub">Corteva Agriscience, Biological Discovery Division</div>
                     <p class="item-desc">
-                        Collaborated within cross-functional discovery pipelines, designing computational pan-genomic workflows to characterize functional genomic diversity and prioritize sustainable agricultural candidates [source: 5, 6].
+                        Collaborated within cross-functional discovery pipelines, designing computational pan-genomic workflows to characterize functional genomic diversity and prioritize sustainable agricultural candidates.
                     </p>
                 </div>
             </section>
