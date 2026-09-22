@@ -3,42 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandra Gomez-Gutierrez | Evolutionary Biologist</title>
+    <title>Sandra V. Gomez-Gutierrez</title>
     <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: #333;
-            line-height: 1.6;
+        /* --- Root CSS Variables for Consistent Colors --- */
+        :root {
+            --primary-color: #1e3a8a; /* Classic Academic Deep Blue */
+            --text-dark: #2d3748;     /* Soft Black for readable body text */
+            --text-light: #718096;    /* Medium Grey for subtitles and dates */
+            --bg-light: #f7fafc;      /* Subtle Background tint */
+            --border-color: #e2e8f0;  /* Clean dividers */
+            --link-color: #2563eb;    /* Royal Blue for interactive links */
+        }
+
+        /* --- Global Reset & Base Typography --- */
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.65;
+            background-color: #ffffff;
             padding: 40px 20px;
-            background-color: #f9f9f9;
         }
-        .container {
-            max-width: 800px;
+
+        /* --- Grid Container (Two Columns on Desktop) --- */
+        .wrapper {
+            max-width: 1000px;
             margin: 0 auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
         }
+
+        /* --- Left Sidebar Layout --- */
+        aside {
+            position: sticky;
+            top: 40px;
+            height: fit-content;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
         h1 {
-            color: #1E3A8A; /* Deep Blue */
-            margin-top: 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            line-height: 1.2;
         }
-        a {
-            color: #2563EB;
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        /* --- Navigation Links --- */
+        nav {
+            margin-bottom: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 8px;
+        }
+
+        nav a {
             text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
         }
-        a:hover {
+
+        nav a:hover {
+            color: var(--link-color);
+        }
+
+        /* --- Social & Contact Icons/Links --- */
+        .social-links {
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .social-links li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: var(--link-color);
+        }
+
+        .social-links a:hover {
             text-decoration: underline;
+        }
+
+        /* --- Right Main Content Area --- */
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        section {
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        /* --- Styled Content Items (Listings) --- */
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .item-date {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .item-sub {
+            font-style: italic;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .item-desc {
+            font-size: 14px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        /* --- Clean List for Publications --- */
+        .pub-list {
+            list-style: none;
+        }
+
+        .pub-list li {
+            font-size: 14.5px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            text-indent: -15px;
+        }
+
+        /* --- Highlight Class for your name in publications --- */
+        .author-self {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* --- Responsive Design (Mobile / Small Screens) --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            aside {
+                position: relative;
+                top: 0;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 30px;
+            }
+
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My Website</h1>
-        <p>Hi, I am Sandra Gomez-Gutierrez, a Computational Life Scientist.</p>
-        <p>You can find my research papers on <a href="https://scholar.google.com">Google Scholar</a>.</p>
+
+    <div class="wrapper">
+        
+        <!-- ================= LEFT SIDEBAR ================= -->
+        <aside>
+            <!-- Tip: Replace 'profile.jpg' with your actual uploaded image path in your repo -->
+            <img src="Sandra_Gomez.jpg" alt="Sandra V. Gomez-Gutierrez" class="profile-img">
+            
+            <h1>Sandra V. Gomez-Gutierrez</h1>
+            <p class="subtitle">Computational Life Scientist</p>
+            
+            <!-- Sidebar Navigation -->
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Contact & Social Icons -->
+            <ul class="social-links">
+                <li>✉️ <a href="mailto:sgomezgu@purdue.edu">sgomezgu@purdue.edu</a></li>
+                <li>🎓 <a href="https://scholar.google.com/citations?user=sF8lM_YAAAAJ&hl=en&authuser=1" target="_blank">Google Scholar</a></li>
+                <li>💻 <a href="https://github.com/sgomezguti" target="_blank">GitHub</a></li>
+                <li>🔗 <a href="https://www.linkedin.com/in/sandra-gomez-29b17b128/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </aside>
+
+        <!-- ================= RIGHT CONTENT AREA ================= -->
+        <main>
+            
+            <!-- ABOUT SECTION -->
+            <section id="about">
+                <h2>About</h2>
+                <p>
+                    I am a Computational Life Scientist with a Ph.D. in Plant Pathology (Computational Life Science) from Purdue University and a B.Sc. in Agronomic Engineering. I specialize in developing systems-level molecular network models and integrating multi-omics datasets—including genomics, transcriptomics, proteomics, and phenomics—to establish mechanistic, data-driven links between genotypes and complex phenotypes.
+                </p>
+                <p>
+                    My research focuses on applying state-of-the-art AI-driven structural biology tools (such as AlphaFold3 and FoldSeek) alongside high-resolution population genomics to discover core molecular regulators, predict adaptive evolutionary trajectories, and model functional cellular trade-offs. I enjoy working at the interface of biology, data science, and agronomy, translating complex large-scale omics modeling into predictive strategies and sustainable agricultural solutions.
+                </p>
+            </section>
+
+            <!-- RESEARCH SECTION -->
+            <section id="research">
+                <h2>Research</h2>
+                <p>
+                    My research program is built around two key intersecting pillars:
+                </p>
+                <div class="item">
+                    <p class="item-title">1. Pathogen Evolution & Population Genomics</p>
+                    <p class="item-desc">
+                        Utilizing laboratory experimental evolution and population-level comparative genomics to decode how plant-associated microbes adapt to hosts, climate conditions, and environmental pressures [source: 1, 23]. I use these evolutionary datasets to develop predictive models capable of forecasting and preventing disease outbreaks before they happen.
+                    </p>
+                </div>
+                <div class="item">
+                    <p class="item-title">2. AI-Driven Molecular Target Identification</p>
+                    <p class="item-desc">
+                        Applying deep learning structural models (AlphaFold2/3) and machine-learning prioritization scoring to map complex host-pathogen molecular interaction networks [source: 1, 10, 25]. This allows us to discover key genetic regulators and target susceptibility proteins to design precise, ecology-based biocontrol and breeding strategies.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PUBLICATIONS SECTION -->
+            <section id="publications">
+                <h2>Publications</h2>
+                <ul class="pub-list">
+                    <li>
+                        <span class="author-self">Gomez-Gutierrez SV</span>, Rodriguez-Diaz C, Jaiswal N, Gribskov M, Helm M, Goodwin SB. (2026). Assessing Zymoseptoria tritici Candidate Effectors in the Non-Host Nicotiana benthamiana Reveals Immune Recognition and Potential Host-Independent Activities. <em>bioRxiv</em> (Accepted, Molecular Plant Pathology).
+                    </li>
+                    <li>
+                        <span class="author-self">Gomez-Gutierrez SV</span>, Steentjes MBF, Kema GHJ, Goodwin SB. (2026). Development of a CRISPR/Cas9-mediated transformation procedure for the wheat pathogen Zymoseptoria tritici. <em>bioRxiv</em> (In review, Fungal Biology and Biotechnology).
+                    </li>
+                    <li>
+                        <span class="author-self">Gomez-Gutierrez SV</span>, Million CR, Jaiswal N, Gribskov M, Helm M, Goodwin SB. (2025). Comparative transcriptomic analysis of Zymoseptoria tritici reveals interaction-specific gene expression patterns during susceptible, resistant, and non-host interactions. <em>Molecular Plant-Microbe Interactions</em>.
+                    </li>
+                    <li>
+                        <span class="author-self">Gomez-Gutierrez SV</span>, Sic W, Haridas S, et al. (2024). Comparative genomics of the extremophile Cryomyces antarcticus and other psychrophilic Dothideomycetes. <em>Frontiers in Fungal Biology</em>, 5:1418145.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- EXPERIENCE SECTION -->
+            <section id="experience">
+                <h2>Experience</h2>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Postdoctoral Research Associate</span>
+                        <span class="item-date">2025 – Present</span>
+                    </div>
+                    <div class="item-sub">Purdue University, Department of Biological Sciences</div>
+                    <p class="item-desc">
+                        Constructing mechanistic, data-driven predictive models of cellular evolution under selective pressures, integrating bacterial genomics, quantitative proteomics, and physiological growth kinetics.
+                    </p>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Graduate Research Assistant</span>
+                        <span class="item-date">2019 – 2025</span>
+                    </div>
+                    <div class="item-sub">Purdue University, Department of Botany and Plant Pathology</div>
+                    <p class="item-desc">
+                        Engineered reproducible RNA-Seq and comparative genomic analysis pipelines, developed machine-learning scoring prioritizations, and applied AlphaFold structural modeling to identify thirty-two key regulatory effectors [source: 1, 25].
+                    </p>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Computational Biology Intern</span>
+                        <span class="item-date">2023</span>
+                    </div>
+                    <div class="item-sub">Corteva Agriscience, Biological Discovery Division</div>
+                    <p class="item-desc">
+                        Collaborated within cross-functional discovery pipelines, designing computational pan-genomic workflows to characterize functional genomic diversity and prioritize sustainable agricultural candidates [source: 5, 6].
+                    </p>
+                </div>
+            </section>
+
+            <!-- EDUCATION SECTION -->
+            <section id="education">
+                <h2>Education</h2>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Ph.D. in Plant Pathology (Computational Life Science)</span>
+                        <span class="item-date">May 2025</span>
+                    </div>
+                    <div class="item-sub">Purdue University, West Lafayette, IN, USA</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">B.Sc. in Agronomic Engineering / Agronomy</span>
+                        <span class="item-date">July 2019</span>
+                    </div>
+                    <div class="item-sub">National University of Colombia, Bogota, Colombia</div>
+                </div>
+            </section>
+
+        </main>
     </div>
+
 </body>
 </html>
+
